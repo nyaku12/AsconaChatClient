@@ -47,12 +47,10 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onConnected() {
-
             }
 
             @Override
             public void onDisconnected(String reason) {
-
             }
 
             @Override

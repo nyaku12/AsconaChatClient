@@ -5,6 +5,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
+import java.util.ArrayList;
+
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -12,6 +14,7 @@ import okhttp3.WebSocket;
 import okhttp3.WebSocketListener;
 
 public class WebSocketClient extends WebSocketListener {
+    ArrayList<String> messages = new ArrayList<String>();
     private static WebSocketClient instance;
     private OkHttpClient client;
     WebSocket webSocket;
@@ -58,6 +61,7 @@ public class WebSocketClient extends WebSocketListener {
     @Override
     public void onMessage(@NonNull WebSocket webSocket, @NonNull String text) {
         Log.d("WebSocket", "Message: " + text);
+        messages.add(text);
         if (callback != null) {
             callback.onMessageReceived(text);
         }
